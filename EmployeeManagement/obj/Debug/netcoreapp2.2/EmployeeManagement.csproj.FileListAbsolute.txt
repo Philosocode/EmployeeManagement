@@ -26,3 +26,10 @@ C:\Users\Tam\source\repos\EmployeeManagement\EmployeeManagement\obj\Debug\netcor
 C:\Users\Tam\source\repos\EmployeeManagement\EmployeeManagement\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
 C:\Users\Tam\source\repos\EmployeeManagement\EmployeeManagement\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
 C:\Users\Tam\source\repos\EmployeeManagement\EmployeeManagement\obj\Debug\netcoreapp2.2\Razor\Views\Home\Create.g.cshtml.cs
+C:\Users\Tam\source\repos\EmployeeManagement\EmployeeManagement\obj\Debug\netcoreapp2.2\Razor\Views\Home\Edit.g.cshtml.cs
+C:\Users\Tam\source\repos\EmployeeManagement\EmployeeManagement\obj\Debug\netcoreapp2.2\Razor\Views\Home\EmployeeNotFound.g.cshtml.cs
+C:\Users\Tam\source\repos\EmployeeManagement\EmployeeManagement\obj\Debug\netcoreapp2.2\Razor\Views\Shared\NotFound.g.cshtml.cs
+C:\Users\Tam\source\repos\EmployeeManagement\EmployeeManagement\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
+C:\Users\Tam\source\repos\EmployeeManagement\EmployeeManagement\bin\Debug\netcoreapp2.2\nlog.config
+C:\Users\Tam\source\repos\EmployeeManagement\EmployeeManagement\obj\Debug\netcoreapp2.2\Razor\Views\Account\Login.g.cshtml.cs
+C:\Users\Tam\source\repos\EmployeeManagement\EmployeeManagement\obj\Debug\netcoreapp2.2\Razor\Views\Account\Register.g.cshtml.cs

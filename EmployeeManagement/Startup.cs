@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EmployeeManagement.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,7 +30,16 @@ namespace EmployeeManagement
             // Everytime an instance of this class is requested, instead of creating a brand new instance, reuse the instance
             // Like singleton
             services.AddDbContextPool<AppDbContext>(options => options.UseSqlServer(_config.GetConnectionString("EmployeeDbConnection")));
-            services.AddMvc().AddXmlSerializerFormatters();
+            services.AddIdentity<ApplicationUser, IdentityRole>(options => {
+                options.Password.RequiredLength = 10;
+                options.Password.RequiredUniqueChars = 3;
+            })
+                    .AddEntityFrameworkStores<AppDbContext>();
+
+            services.AddMvc(options => {
+                var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+                options.Filters.Add(new AuthorizeFilter(policy));
+            }).AddXmlSerializerFormatters();
             // If a class requests the IEmployeeRepository service,
             // create an instance of SQLEmployeeRepository and inject that instead
             services.AddScoped<IEmployeeRepository, SQLEmployeeRepository>();
@@ -40,9 +52,16 @@ namespace EmployeeManagement
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+                // Automatically receives the error status code, e.g. 404
+                app.UseStatusCodePagesWithReExecute("/Error/{0}");
+            }
 
             // app.UseFileServer();
             app.UseStaticFiles();
+            app.UseAuthentication();
             // app.UseMvcWithDefaultRoute();
             app.UseMvc(routes =>
             {
